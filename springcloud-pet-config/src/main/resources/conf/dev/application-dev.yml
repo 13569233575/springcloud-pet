@@ -1,0 +1,27 @@
+
+spring:
+  ## 文件上传限制
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+
+
+
+info:
+  version: @project.version@
+  app.name: springcloud-pet-config
+  build.artifactId: $project.artifactId$
+  build.modelVersion: $project.modelVersion$
+
+
+# 暴露监控端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+
+
+

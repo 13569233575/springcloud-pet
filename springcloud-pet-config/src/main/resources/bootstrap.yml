@@ -1,0 +1,58 @@
+server:
+  port: 18006
+
+
+#官网文档速查 https://cloud.spring.io/spring-cloud-static/spring-cloud-config/2.1.0.RC3/single/spring-cloud-config.html
+#服务配置
+spring:
+  application:
+    name: @artifactId@
+  profiles:
+    active: native                 # native 为本地配置  remote 为远程
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://admin:zhzy@10.10.11.172:7001/eureka
+  instance:
+    prefer-ip-address: true # 在地址栏上使用IP地址进行显示
+    instance-id: @artifactId@
+
+---
+spring:
+  profiles: native
+  cloud:
+    config:
+      #enabled: true
+      #discovery:
+        #enabled: true #开启config服务发现，既开启集群环境，此开关开启时，client必须使用服务名链接config server。
+      server:
+        native:
+          search-locations: classpath:/conf/
+      fail-fast: true
+---
+spring:
+  profiles: remote
+  cloud:
+    config:
+      enabled: true
+      #discovery:
+        #enabled: true #开启config服务发现，既开启集群环境，此开关开启时，client必须使用服务名链接config server。
+      server:
+        #health:
+          #enabled: false 关闭健康检查和动态刷新
+        git:
+          uri: https://github.com/13569233575/springcloud-config.git
+          username: admin
+          password: zhzy
+
+# 刷新配置  post方式请求 http://localhost:18003/actuator/refresh 更新18003端口对应的服务配置，@RefreshScope必须
+# 查询配置 http://localhost:18006/cvnavi-mss-gateway/dev/dev
+
+# 暴露监控端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

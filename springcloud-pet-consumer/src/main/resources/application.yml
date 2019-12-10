@@ -1,0 +1,32 @@
+
+server:
+  port: 9001
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://admin:zhzy@10.10.11.172:7001/eureka
+  instance:
+    prefer-ip-address: true # 在地址栏上使用IP地址进行显示
+    instance-id: @artifactId@
+
+feign:
+  hystrix:
+    enabled: true
+  compression:
+    request:
+      enabled: true
+      mime-types: # 可以被压缩的类型
+        - text/xml
+        - application/xml
+        - application/json
+      min-request-size: 2048 # 超过2048的字节进行压缩
+
+logging:
+  level:
+    com.zhzy: DEBUG
+
+spring:
+  application:
+    name: springcloud-pet-consumer

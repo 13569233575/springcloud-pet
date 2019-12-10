@@ -1,0 +1,32 @@
+
+spring:
+  application:
+    name: @artifactId@
+  # 配置中心
+  cloud:
+    config:
+      fail-fast: true
+      name: ${spring.application.name}
+      profile: ${spring.profiles.active}
+      label : ${spring.profiles.active}
+      username: admin # 连接的用户名
+      password: zhzy # 连接的密码
+      discovery:
+        enabled: true
+        service-id: springcloud-pet-config
+  profiles:
+    active: @profiles.active@
+
+
+
+eureka:
+  client:
+    service-url:
+      #defaultZone: http://admin:zhzy@eureka1:7001/eureka,http://admin:zhzy@eureka2:7002/eureka,http://admin:zhzy@eureka3:7003/eureka
+      defaultZone: http://admin:zhzy@10.10.11.172:7001/eureka
+
+  instance:
+    instance-id: springcloud-pet-product # 定义 eureka 实例的名称
+    prefer-ip-address: false
+    lease-renewal-interval-in-seconds: 2
+    lease-expiration-duration-in-seconds: 5
