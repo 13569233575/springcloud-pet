@@ -17,6 +17,8 @@
         <module>springcloud-pet-api</module>
         <module>springcloud-pet-feign</module>
         <module>springcloud-pet-consumer</module>
+        <module>springcloud-pet-config-client</module>
+        <module>springcloud-pet-config-bus</module>
     </modules>
 
     <properties>

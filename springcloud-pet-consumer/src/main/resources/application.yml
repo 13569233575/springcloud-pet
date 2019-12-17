@@ -8,7 +8,7 @@ eureka:
     service-url:
       defaultZone: http://admin:zhzy@10.10.11.172:7001/eureka
   instance:
-    prefer-ip-address: true # ÔÚµØÖ·À¸ÉÏÊ¹ÓÃIPµØÖ·½øÐÐÏÔÊ¾
+    prefer-ip-address: true # ï¿½Úµï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½IPï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾
     instance-id: @artifactId@
 
 feign:
@@ -17,11 +17,11 @@ feign:
   compression:
     request:
       enabled: true
-      mime-types: # ¿ÉÒÔ±»Ñ¹ËõµÄÀàÐÍ
+      mime-types: # ï¿½ï¿½ï¿½Ô±ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         - text/xml
         - application/xml
         - application/json
-      min-request-size: 2048 # ³¬¹ý2048µÄ×Ö½Ú½øÐÐÑ¹Ëõ
+      min-request-size: 2048 # ï¿½ï¿½ï¿½ï¿½2048ï¿½ï¿½ï¿½Ö½Ú½ï¿½ï¿½ï¿½Ñ¹ï¿½ï¿½
 
 logging:
   level:
@@ -30,3 +30,9 @@ logging:
 spring:
   application:
     name: springcloud-pet-consumer
+
+info:
+  app.name: springcloud-pet-consumer
+  company.name: com.zhzy
+  build.artifactId: $project.artifactId$
+  build.modelVersion: $project.modelVersion$

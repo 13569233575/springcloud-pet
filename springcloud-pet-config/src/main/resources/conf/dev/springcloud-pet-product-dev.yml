@@ -26,6 +26,13 @@ info:
   build.artifactId: $project.artifactId$
   build.modelVersion: $project.modelVersion$
 
+# 暴露监控端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
 
 
 

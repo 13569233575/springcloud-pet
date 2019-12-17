@@ -1,0 +1,35 @@
+
+server:
+  port: 9501
+
+eureka:
+  client: # �ͻ��˽���Eurekaע�������
+    service-url:
+      defaultZone: http://admin:zhzy@10.10.11.172:7001/eureka
+  instance:
+    instance-id: springcloud-pet-gateway
+    prefer-ip-address: false
+    lease-renewal-interval-in-seconds: 2
+    lease-expiration-duration-in-seconds: 5
+
+spring:
+  application:
+    name:  springcloud-pet-gateway
+
+info:
+  app.name: springcloud-pet-gateway
+  company.name: com.zhzy
+  build.artifactId: $project.artifactId$
+  build.modelVersion: $project.modelVersion$
+
+zuul:
+  routes:
+    product:
+      path: /pet-product/**
+      serviceId: springcloud-pet-product
+    consumer:
+      path: /consumer/**
+      serviceId: springcloud-pet-consumer
+  ignored-services:
+    "*"
+  prefix: /api

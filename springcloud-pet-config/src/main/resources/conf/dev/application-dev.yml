@@ -10,10 +10,6 @@ spring:
 
 info:
   version: @project.version@
-  app.name: springcloud-pet-config
-  build.artifactId: $project.artifactId$
-  build.modelVersion: $project.modelVersion$
-
 
 # 暴露监控端点
 management:

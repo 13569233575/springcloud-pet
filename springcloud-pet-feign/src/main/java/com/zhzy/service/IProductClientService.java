@@ -12,13 +12,13 @@ import java.util.List;
 @FeignClient(name = "springcloud-pet-product",configuration = FeignClientConfig.class,fallbackFactory = IProductClientServiceFallbackFactory.class)
 public interface IProductClientService {
 
-    @RequestMapping("/prodcut/get/{id}")
+    @RequestMapping("/product/get/{id}")
     Product getProduct(@PathVariable("id") long id);
 
-    @RequestMapping("/prodcut/list")
+    @RequestMapping("/product/list")
     List<Product> listProduct() ;
 
-    @RequestMapping("/prodcut/add")
+    @RequestMapping("/product/add")
     boolean addPorduct(Product product) ;
 
 }

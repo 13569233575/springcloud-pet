@@ -18,8 +18,8 @@ import java.util.Map;
 
 @Slf4j
 @RestController
-@RequestMapping("/prodcut")
-public class ProductController extends BaseController {
+@RequestMapping("/product")
+public class ProductController {
 
     @Resource
     private IProductService iProductService;
